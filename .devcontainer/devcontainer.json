@@ -1,0 +1,44 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.205.2/containers/docker-existing-dockerfile
+{
+	"name": "YOUR_CONTAINER_NAME_HERE",
+
+	// Sets the run context to one level up instead of the .devcontainer folder.
+	"context": "..",
+
+	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+	"dockerFile": "../Dockerfile",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": {},
+	
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": ["ms-python.python"],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Uncomment the next line to run commands after the container is created - for example installing curl.
+	// "postCreateCommand": "apt-get update && apt-get install -y curl",
+
+	// Uncomment when using the GPUs on the remote computer.
+	"runArgs": [ "--gpus", "all"],
+
+	// USE ONLY FOR PRIVATE PC-TOWER AT HOME!
+	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
+	// "mounts": ["source=D:/Uni/Bachelorarbeit/01_Daten/10_normierte_mit_KPI,target=/workspaces/Bachelorarbeit/Data,type=bind,consistency=cached",
+	//			"source=H:/Projekte/Bachelorarbeit/07_Modell_Logs,target=/workspaces/Bachelorarbeit/.logs,type=bind,consistency=cached"],
+
+	// USE ONLY FOR DAP CONNECTION TO DAP-RECHENCLUSTER!
+	 "mounts": ["source=/home/waldapfel/BA/data/normiert_0to1_ohne_KPI,target=/workspaces/Bachelorarbeit/Data,type=bind,consistency=cached",
+			  "source=/home/waldapfel/BA/data/logs,target=/workspaces/Bachelorarbeit/logs,type=bind,consistency=cached"],
+	
+	// USE ONLY AT INSTITUT TOWER PC'S
+	// Fill in "mounts": []
+
+	// Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "vscode"
+
+	// Uncomment to be able to close VSCode but keep the Container running.
+	"shutdownAction": "none",
+}
